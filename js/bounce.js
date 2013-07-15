@@ -49,15 +49,11 @@ function load(){
       if(Y>-window.innerHeight/2 && down==1){ // falling down
         Y -= (u*time + 0.5*9.8*time*time);
         time += 6/60;
-        mesh.rotation.x -= rotX;
-        mesh.rotation.y += rotY;
       }	 
       else if (Y <= -window.innerHeight/2 && down ==1){
         v = u + 9.8*time;
         u = CR*v;
         maxH *= CR*CR;	
-        mesh.rotation.x -= rotX;
-        mesh.rotation.y += rotY;
         time = 0;
         down = 0;
       }
@@ -65,13 +61,13 @@ function load(){
         v = u - 9.8*time;
         Y += (v*v)/(2*9.8);
         time += 6/60;
-        mesh.rotation.x -= rotX;
-        mesh.rotation.y += rotY;
       }
       else{
         u = 0;
         time = 0;	
      	down = 1;
-      }  
+      } 
+      mesh.rotation.x -= rotX;
+      mesh.rotation.y += rotY; 
     }
 }
